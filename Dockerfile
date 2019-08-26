@@ -8,15 +8,11 @@ RUN apk update \
 
 RUN git clone https://github.com/uber/kepler.gl.git
 
-WORKDIR /kepler.gl
-
-RUN npm install \
-	&& npm audit fix
+RUN npm install --save kepler.gl
 
 WORKDIR /kepler.gl/examples/demo-app
 
-RUN npm install \
-        && npm audit fix
+RUN npm install 
 
 ENV PATH "$PATH:/kepler.gl/examples/demo-app/node_modules/.bin"
 
